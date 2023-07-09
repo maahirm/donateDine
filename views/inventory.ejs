@@ -1,0 +1,77 @@
+<%- include("partials/header"); -%>
+
+<style>
+    .inventory-grid-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .card {
+        background-color: #f5c48f;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        height: 20rem;
+        width: 12rem;
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        max-width: 85%;
+        margin-bottom: 10px;
+    }
+
+    .card h1 {
+        font-size: 1.75rem;
+        margin-bottom: 5px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+</style>
+
+<section id="home-heading">
+    <div class="container heading-box">
+        <div class="row row-home">
+            <div class="col-lg-6">
+                <h1 class="big-heading">Inventory</h1>
+                <h2 class="inventory-heading mt-3">Let's Minimize Waste And Maximize Impact</h2>
+                <p class="heading-para mt-5">This is the leftover food that we have available for donation. It helps identify and prevent potential food waste by providing an accurate overview of the surplus food that can be donated.</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="donate-img" src="images/people-cooking.jpeg.jpg" alt="cooking-mockup">
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="food-grid-items" style="margin-bottom:5rem ;" >
+        <div class="container inventory-grid-items">
+            <% fooditems.forEach(function(fooditem) { %>
+            <div class="card">
+                <img src="images/<%= fooditem.foodName %>.png" alt="image cant be loaded" style="margin: auto">
+                <h1><%= fooditem.foodName %></h1>
+                <h2>Quantity: <%= fooditem.foodQuantity %></h2>
+            </div>
+            <% }); %>
+        </div>
+    </section>
+
+<%- include("partials/footer"); -%>

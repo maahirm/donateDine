@@ -1,0 +1,56 @@
+<%- include("partials/header"); -%>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+</style>
+
+<h1>Order Placed</h1>
+<p>Thank you for your donation! Your order has been placed successfully.</p>
+<p>Order details:</p>
+<ul>
+  <li><strong>Name:</strong> <%= UserName %></li>
+  <li><strong>Donated Items:</strong></li>
+  <ul>
+    <% Object.keys(mapping).forEach(function(key) { %>
+      <%    if(mapping[key]>0){%>
+            <li><%= key %>: <%= mapping[key] %> quantity</li>
+            <%    }  %>
+
+    <% }) %>
+  </ul>
+</ul>
+<p>Thank you for your support!</p>
+
+<%- include("partials/footer"); -%>
